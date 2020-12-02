@@ -4,6 +4,7 @@ var mysql = require('mysql');
 // Import express module
 var express = require("express");
 const { TestScheduler } = require('jest');
+const { json } = require('body-parser');
 
 // Define object of express module
 var app = express();
@@ -40,6 +41,10 @@ if(!e) {
 
   // Return the resultset of the query if it is successfully executed
   response.json(rows);
+  console.log(JSON.stringify(rows));
+  //console.
+  //console.log("rows="+JSON.parse(response.json(rows)));
+
 }
 });
 
@@ -52,7 +57,7 @@ return;
 }
 
 // Call the function for making connections
-app.get("/",function(request,response){-
+app.get("/data",function(request,response){-
 handle_database(request,response);
 });
 
